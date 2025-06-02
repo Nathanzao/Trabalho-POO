@@ -1,0 +1,33 @@
+package Sistema;
+
+public class Tecnico extends Funcionario{
+    private String funcao;
+
+    public Tecnico(double salarios, String nomes, String codigos, String lvl, String funfa){
+        super(salarios, nomes, codigos, lvl);
+        this.funcao = funfa;
+    }
+
+    @Override
+    public String info(){
+        return "Codigo: " + getCodigo() + ", Nome: " + getNome() + ", Salario: " + calcularSalario() + " reais, " +
+                "Funcao: " + getFuncao() + ", Nivel: " + getNivel() + ".\n";
+    }
+
+    @Override
+    public Double calcularSalario() {
+        if(getNivel().equals("T1")){
+            return (getSalario() * 1.1f); /*Retorna 10% caso seja T1*/
+        }else{
+            return (getSalario() * 1.2f); /*Retorna 20% caso seja T2*/
+        }
+    }
+
+    public String getFuncao() {
+        return funcao;
+    }
+
+    public void setFuncao(String funcao) {
+        this.funcao = funcao;
+    }
+}
